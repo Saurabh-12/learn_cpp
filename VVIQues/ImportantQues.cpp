@@ -106,7 +106,7 @@ printNunmberHaveFirstNLastBitSet(25);
 cout << endl;
 
 cout << "Toggle first and last digit of a number 57 = 24 and  245 = 60" << endl;
-toggleFirstAndLastBit(113);
+toggleFirstAndLastBit(57);
 cout << endl;
 toggleFirstAndLastBit(245);
 cout << endl;
