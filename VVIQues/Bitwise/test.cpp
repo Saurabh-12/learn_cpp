@@ -1,5 +1,7 @@
 #include <iostream>
 #include <bitset>
+#include <cmath>
+
 
 using std::cout;
 using std::cin;
@@ -41,6 +43,16 @@ cout <<"15 "<<(15 & (~(1<<2)))<<endl;
 cout <<"15 "<<(11 ^(1<<2))<<endl;
 
 cout<<"Toggle First Bit of Number 4 :100 "<<(4 ^1)<<endl;
+
+
+//count total number of bits in a number
+unsigned int num = 10;
+int Bitcount = log2(10);
+//create number using left sgift
+int k = 1 << Bitcount;
+cout << "Number of bits in 10 is "<<k<<endl;
+
+cout << "57 >> 4: "<<(57 >>4) << endl;
 
 
 

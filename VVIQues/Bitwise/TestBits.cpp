@@ -44,7 +44,7 @@ void toggleLastBit(int& num) {
 }
 
 //check at given position bit is set or unset in a number
-bool checkAtGivenPositionBitSrtOrUnset(const int num, const int pos) {
+bool checkAtGivenPositionBitSetOrUnset(const int num, const int pos) {
      int newNum = num >> (pos-1);
      return (newNum & 1 == 1 ? 1:0 );
 }
@@ -77,12 +77,17 @@ int main(){
 
    cout << "Check bit is set or not on 5th position for number 57 "<<" binary of 57 "<<bitset<16>(57)<<endl;
    
-   if(checkAtGivenPositionBitSrtOrUnset(57,5))
+   if(checkAtGivenPositionBitSetOrUnset(57,5))
        cout << "5th position for number 57 is set"<<endl;
    else 
      cout <<"5th position for number 57 is not set"<<endl;
 
    cout << "convert 212 into binary : "<<convertDecimalToBinary(212)<<endl;
+
+   // count no of bits in a Number
+   int nums = 10;
+   int count = countBits(nums);
+   cout << "Number of bits "<<count<<endl;
 
    return 0;
 }

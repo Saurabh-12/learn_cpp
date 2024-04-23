@@ -79,7 +79,7 @@ void doSomethingInCurrentThread() {
 
 void f()
 {
-    int some_local_state;
+    int some_local_state = 1;
     Func my_func(some_local_state);
     thread t(my_func);
     ThreadGuard g(t);

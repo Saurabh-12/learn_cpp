@@ -10,7 +10,7 @@ using namespace std;
 bool isPalindrome(string str) {
     string str1 = str;
     reverse(str1.begin(), str1.end());
-    if (str1 == str) {
+    if (str1 == str) {  
         return true;
     } else {
         return false;

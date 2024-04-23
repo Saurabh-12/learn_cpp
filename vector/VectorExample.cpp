@@ -177,6 +177,7 @@ int main () {
     vect1.v2.push_back(10);
     vect1.v3.push_back(15);
     vect1.v.push_back(10);
+
  
     for (int a : vect1.v) {
         cout << a << " ";
@@ -222,6 +223,7 @@ boolVector.at(1) = false;
 boolVector.at(2) = true;
 boolVector.at(3) = false;
 boolVector.at(4) = true;
+boolVector.front() =  false;
 
 for (int i = 0; i < boolVector.size(); i++)
     cout << boolVector.at(i) << " ";

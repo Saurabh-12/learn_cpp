@@ -1,5 +1,8 @@
 #include <iostream>
 #include <set>
+#include <vector>
+#include<algorithm>
+
 
 using namespace std;
 
@@ -23,7 +26,7 @@ int removeDuplicateWithoutUsingExtraArray(int arr[], int n)
     return j;
 }
 
-// Function to remove duplicate without using extra Array
+// Function to remove duplicate using extra Array
 int removeDuplicate(int arr[], int n){
     int temp[n];
     int j = 0;
@@ -65,6 +68,22 @@ int removeDuplicateUsingSet(int arr[], int n){
     return uniqueElements.size();
 }
 
+// remove duplicate using vector
+int removeDuplicateUsingVector(int arr[], unsigned size, int val) {
+    vector<int>nums;
+    for(unsigned i = 0 ; i <size; i++)
+       nums.push_back(i);
+
+      // remove element that is matching with val
+    nums.erase(remove(nums.begin(), nums.end(), val), nums.end());
+
+    // update the original array
+    for(unsigned i = 0; i<nums.size(); i++)
+      arr[i] = nums[i];
+
+    return nums.size();
+}
+
 void bubbleSort(int arr[], int size)
 {
     int temp = 0;
@@ -100,7 +119,8 @@ int main () {
 
    // size = removeDuplicate(arr,size);
    //size = removeDuplicateWithoutUsingExtraArray(arr, size);
-   size = removeDuplicateUsingSet(arr, size);
+   //size = removeDuplicateUsingSet(arr, size);
+   size = removeDuplicateUsingVector(arr,size, 2);
 
     for (int i = 0; i <size; i++)
      cout<<arr[i]<<" ";

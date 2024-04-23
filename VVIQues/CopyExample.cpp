@@ -11,9 +11,9 @@ using std::string ;
 
 char* strcpy1(char *dest, const char *src)
 {
-    char *ret = dest;
+    //char *ret = dest;
     while (*dest++ = *src++);
-    return ret;
+    return dest;
 }
 
 char *strcpy2(char *dest, const char *src) {
@@ -33,7 +33,7 @@ int main()
     char ss[20] = "Learn c and cpp";
     char dd [20];
 
-    strcpy(dd,ss);
+    strcpy1(dd,ss);
 
     cout <<"copied String  or char is : "<<dd<<endl;    
     return 0;
