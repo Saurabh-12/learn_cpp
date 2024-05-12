@@ -9,29 +9,29 @@ using namespace std;
 
 // Function to remove duplicate elements
 // This function returns new size of modified array.
-int removeDuplicateWithoutUsingExtraArray(int arr[], int n)
+int removeDuplicateWithoutUsingExtraArray(int arr[], int size)
 {
 
-    if (n==0 || n==1)
+    if (size==0 || size==1)
         return n;
  
     // To store index of next unique element
     int j = 0;
-    for (int i=0; i < n-1; i++)
+    for (int i=0; i < size-1; i++)
         if (arr[i] != arr[i+1])
             arr[j++] = arr[i];
  
-    arr[j++] = arr[n-1];
+    arr[j++] = arr[size-1];
  
     return j;
 }
 
 // Function to remove duplicate using extra Array
-int removeDuplicate(int arr[], int n){
-    int temp[n];
+int removeDuplicate(int arr[], int size){
+    int temp[size];
     int j = 0;
 
-    if (n == 0 || n == 1)
+    if (size == 0 || n == 1)
         return n;
 
     for (int i = 0 ;i < n-1; i++)

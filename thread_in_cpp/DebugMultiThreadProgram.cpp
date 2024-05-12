@@ -5,9 +5,9 @@
 
 int count = 0;
 
-void doSomeWork() {
+void doSomeWork(int threadID) {
 
-    std::cout << "The doSomeWork function is running on another thread." << std::endl;
+    std::cout << "The doSomeWork function is running on threadID: " <<threadID<<std::endl;
     int data = count++;
     // Pause for a moment to provide a delay to make
     // threads more apparent.
@@ -21,7 +21,7 @@ int main() {
 
     for (int i = 0; i < 10; ++i) {
 
-        threads.push_back(std::thread(doSomeWork));
+        threads.push_back(std::thread(doSomeWork, i));
         std::cout << "The Main() thread calls this after starting the new thread" << std::endl;
 }
 

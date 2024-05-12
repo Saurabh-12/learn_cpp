@@ -22,9 +22,10 @@ void printNumber(int threadID) {
         }
 
         //Since we are entering the critical section we take lock on mutex.
-        // Reason for using unique_lock is that it will unlock and get the lock
-        // as per the need. We dont have to explicitly call mutex unlock.
+        // Reason for using unique_lock is that it will unlock and get the lock as per the need. 
+        // We dont have to explicitly call mutex unlock.
         unique_lock<mutex> lock(mtx);
+
         if ((threadID == 1 && count % 2 == 1) || (threadID == 2 && count % 2 == 0)) 
         {
             std::cout << "  Thread " << threadID << ":" << count<<std::endl;
@@ -150,10 +151,10 @@ int main () {
     //thread t1(printZeroOne, 1);
     //thread t2(printZeroOne, 2);
 
-    //thread t1 (printEven);
-    //thread t2 (printOdd);
-    thread t1 (printOne);
-    thread t2 (printZero);
+    thread t1 (printEven);
+    thread t2 (printOdd);
+   // thread t1 (printOne);
+    //thread t2 (printZero);
     t1.join();
     t2.join();
 

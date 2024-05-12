@@ -18,10 +18,10 @@ int temp = *a;
 void bubbleSort(int *arr, const int n) {
     int i, j;
 
-    for (i = 0; i < n - 1; i++) {
-        for (j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                swap(&arr[j], &arr[j + 1]);
+    for (i = 0; i < n; i++) {
+        for (j = i+1; j < n; j++) {
+            if (arr[i] > arr[j]) {
+                swap(&arr[i], &arr[j]);
             }
         }
     }

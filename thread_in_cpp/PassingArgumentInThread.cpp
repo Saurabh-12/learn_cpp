@@ -17,7 +17,9 @@ Here’s an example
 
 */
 
-void testFunction(int i,string const& s);
+void testFunction(int i,string const& s){
+    cout << i << " "<<s<<endl;
+}
 
 
    /*
@@ -58,9 +60,11 @@ int main() {
     char const* and converted to a std::string only in the context of the new thread
     */
     thread t(testFunction, 3, "Hello");
+    t.join();
 
-    string data = "Hello";
-    thread t(testFunction, 3, std::ref(data));
+    string data = "Hello Saurabh";
+    thread t2(testFunction, 3, std::ref(data));
+    t2.join();
 
 
 
