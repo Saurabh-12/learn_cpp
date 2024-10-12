@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stack>
 
 using namespace std;
 
@@ -212,6 +213,39 @@ TreeNode *deleteNode(TreeNode *root, int key)
   return root;
 }
 
+// create a BST using preorder traversal
+TreeNode* createBSTFromPreOrder(int *arr, int size){
+   // create root node
+   int i = 0;
+   TreeNode* root = new TreeNode(arr[i++]);
+
+   //iterative step
+   TreeNode* temp;
+   TreeNode* head = root;
+   stack<TreeNode*>stk;
+
+   while(i <size) {
+    // Left child case
+    if (arr[i] < head -> data){
+       temp = new TreeNode(arr[i++]);
+       head -> left = temp;
+       stk.push(head);
+       head = temp;
+    } else {
+      // Right child case
+       if (arr[i] > head->data && arr[i] < stk.empty() ? 32767 : stk.top()->data){
+         temp = new TreeNode(arr[i++]);
+         head -> right = temp;
+         head = temp;
+       } else { // 
+         head = stk.top();
+         stk.pop();
+       }
+    }
+   }
+   return root;
+}
+
 int main()
 {
 
@@ -240,7 +274,20 @@ int main()
   // delete node 55
   root = deleteNode(root, 55);
   inorderTraversal(root);
-  printf("\n)");
+  printf("\n");
+
+  // BST from Preorder traversal
+  cout << "BST from Preorder: " << flush;
+  int pre[] = {30, 20, 10, 15, 25, 40, 50, 45};
+  int n = sizeof(pre) / sizeof(pre[0]);
+  for( auto k : pre)
+    cout<<k<<" ";
+  printf("\n");
+  TreeNode* tree = createBSTFromPreOrder(pre,n);
+  // print tree inorder
+  cout<<"Printing tree inOrder after creating it from PreOder"<<endl;
+  inorderTraversal(tree);
+  printf("\n");
 
   return 0;
 }

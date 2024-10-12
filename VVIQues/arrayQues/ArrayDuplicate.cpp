@@ -13,7 +13,7 @@ int removeDuplicateWithoutUsingExtraArray(int arr[], int size)
 {
 
     if (size==0 || size==1)
-        return n;
+        return size;
  
     // To store index of next unique element
     int j = 0;
@@ -31,16 +31,16 @@ int removeDuplicate(int arr[], int size){
     int temp[size];
     int j = 0;
 
-    if (size == 0 || n == 1)
-        return n;
+    if (size == 0 || size == 1)
+        return size;
 
-    for (int i = 0 ;i < n-1; i++)
+    for (int i = 0 ;i < size-1; i++)
     {
         if(arr[i] != arr[i+1])
           temp[j++] = arr[i];
     }
     //Add the last element in temp array
-    temp[j++] = arr[n-1];
+    temp[j++] = arr[size-1];
 
 //// Modify original array
     for(int i = 0; i <j; i++)

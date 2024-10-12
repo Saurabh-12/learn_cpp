@@ -63,6 +63,55 @@ vector<int> twoSumUsingMap(vector<int>&arr, int target) {
     return {};
 }
 
+/*
+Given an array arr[] of size n and an integer x, 
+return 1 if there exists a pair of elements in the array whose absolute difference is x, otherwise, return -1.
+
+*/
+
+//only works for smaller test cases.
+
+int findPair(int n, int x, vector<int> &arr)
+{
+    sort(arr.begin(), arr.end());
+
+    int left = 0;
+    int right = 1;
+
+    while (left < n && right < n)
+    {
+
+        auto diff = abs(arr[right] - arr[left]);
+
+        if (diff == x && left != right)
+        {
+            return 1;
+        }
+        else if (diff < x)
+        {
+            right++;
+        }
+        else
+        {
+            left++;
+        }
+    }
+    return -1;
+}
+// For large test cases, we use Map
+int findPairUsingMap(int n, int x, vector<int> &arr)
+{
+    unordered_map<int, int> mp;
+
+    for (auto num : arr)
+    {
+        if (mp.count(num - x) or mp.count(x + num))
+            return 1;
+        mp[num]++;
+    }
+    return -1;
+}
+
 int main () {
     //vector<int> arr {3,2,4,6,8,5,7};
    // int target = 6;
