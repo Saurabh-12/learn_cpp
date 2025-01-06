@@ -36,6 +36,7 @@ int main () {
 
     vector<Test> v1;
     vector<Test> v2;
+    
     auto start = std::chrono::high_resolution_clock::now();
 
     for (int i = 0; i < 100000; ++i)

@@ -148,11 +148,11 @@ int main () {
     //thread t1(printNumber,1);
     //thread t2(printNumber,2);
 
-    //thread t1(printZeroOne, 1);
-    //thread t2(printZeroOne, 2);
+    thread t1(printZeroOne, 1);
+    thread t2(printZeroOne, 2);
 
-    thread t1 (printEven);
-    thread t2 (printOdd);
+   // thread t1 (printEven);
+   // thread t2 (printOdd);
    // thread t1 (printOne);
     //thread t2 (printZero);
     t1.join();

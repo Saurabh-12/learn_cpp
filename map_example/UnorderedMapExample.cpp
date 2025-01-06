@@ -1,5 +1,6 @@
 # include <iostream>
 # include <unordered_map>
+# include <string>
 
 
 using namespace std;
@@ -56,5 +57,65 @@ int main() {
         cout<< it->first <<" "<<it->second<<endl;
     }
     cout<<endl;
+
+    unordered_map<string, int> ages;
+  
+    //INSERTION
+    ages["Rishabh"] = 26;
+    ages["Anjali"] = 23;
+    ages["Raushan"] = 26;
+    pair<string, int> p = make_pair("Reetesh", 25);
+    ages.insert(p);
+    ages.insert({"Jincheng", 38});
+  
+    //LOOKUP
+    cout << "Reetesh's age is: " << ages["Reetesh"] << endl;
+
+    //CHECKING EXISTENCE USING find()
+    string key = "Raushan";
+    if (ages.find(key) != ages.end()) {
+        cout << key << " exists in the map and is " << ages[key] << " years old." << endl;
+    } else {
+        cout << key << " does not exist in the map." << endl;
+    }
+
+    //CHECKING EXISTENCE USING count()
+    key = "Anjali";
+    if (ages.count(key) > 0) {
+        cout << key << " exists in the map and is " << ages[key] << " years old." << endl;
+    } else {
+        cout << key << " does not exist in the map." << endl;
+    }
+
+    //ACCESSING and CHANGING values using []
+    cout << "Rishabh's age is: " << ages["Rishabh"] << endl;
+    ages["Rishabh"] = 27;  // Changing value
+    cout << "Rishabh's updated age is: " << ages["Rishabh"] << endl;
+
+    //ACCESSING and CHANGING values using at()
+    cout << "Anjali's age is: " << ages.at("Anjali") << endl;
+    ages.at("Anjali") = 24;  // Changing value
+    cout << "Anjali's updated age is: " << ages.at("Anjali") << endl;
+
+    //SEARCHING using [] (adds a new element if not found)
+    cout << "Trying to access non-existent key 'John': " << ages["John"] << endl;
+    cout << "Size of map after accessing 'John': " << ages.size() << endl;
+
+    //ITERATION using iterator
+    cout << "Using iterator:" << endl;
+    unordered_map<string, int>::iterator it = ages.begin();
+    while (it != ages.end()) {
+        cout << it->first << " is " << it->second << " years old" << endl;
+        ++it;
+    }
+  
+    //ITERATION using auto
+    cout << "Using auto:" << endl;
+    for (const auto& pair : ages) {
+        cout << pair.first << " is " << pair.second << " years old" << endl;
+    }
+  
+    //DELETION
+    ages.erase("Reetesh");
 
 }

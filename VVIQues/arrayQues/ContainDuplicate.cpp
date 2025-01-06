@@ -2,6 +2,7 @@
 # include <vector>
 # include <set>
 # include <algorithm>
+# include <unordered_map>
 
 using namespace std;
 
@@ -25,6 +26,24 @@ bool containDuplicates(vector<int>& nums) {
     set<int> mySet(nums.begin(), nums.end());
     return mySet.size() < size;
 }
+
+// Better approach O(n) using unordered_map
+    bool containsDuplicate(vector<int>& nums) {
+
+        //CREATION
+        unordered_map<int, int>umap;
+        for(int i=0; i<nums.size(); i++){
+            int x = nums[i];
+
+            //LOOKUP
+            if(umap.find(x) != umap.end()) return true;
+
+            //INSERTION and INCREMENT
+            umap[x]++;
+        }
+        return false;
+        
+    }
 
 // Better approach O(nlogn)
 bool checkDuplicates(vector<int>& nums){
